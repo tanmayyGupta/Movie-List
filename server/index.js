@@ -5,7 +5,7 @@ const app = (express());
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const port = 8001||env.process.PORT;
+const port = 8001||process.env.PORT;
 const User = require('./models/user.model.js')
 const List = require('./models/list.model.js')
 const updatedList = require('./models/updatedlist.model.js');
@@ -183,5 +183,5 @@ app.delete('/removeitem', async(req, res) => {
 
 //check
 app.listen(port, () => {
-    console.log('server started on port 8001');
+    console.log(`Listening at port ${port}`);
 });
