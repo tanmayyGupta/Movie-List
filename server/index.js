@@ -2,12 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = (express());
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-
+const port = 8001||env.process.PORT;
 const User = require('./models/user.model.js')
 const List = require('./models/list.model.js')
-const updatedList = require('./models/updatedlist.model.js')
+const updatedList = require('./models/updatedlist.model.js');
+const { eventNames } = require('./models/user.model.js');
 
 //Middle-ware
 app.use(express.json());
@@ -180,6 +182,6 @@ app.delete('/removeitem', async(req, res) => {
 
 
 //check
-app.listen(8001, () => {
+app.listen(port, () => {
     console.log('server started on port 8001');
 });
